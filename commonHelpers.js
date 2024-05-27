@@ -1,0 +1,11 @@
+import{S as l,i as a}from"./assets/vendor-0fc460d7.js";(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))n(e);new MutationObserver(e=>{for(const r of e)if(r.type==="childList")for(const i of r.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&n(i)}).observe(document,{childList:!0,subtree:!0});function o(e){const r={};return e.integrity&&(r.integrity=e.integrity),e.referrerPolicy&&(r.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?r.credentials="include":e.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function n(e){if(e.ep)return;e.ep=!0;const r=o(e);fetch(e.href,r)}})();const u="44100586-6dae9d5f9d68e136096a0f58f",f="https://pixabay.com/api/";function d(s){const t=`${f}?key=${u}&q=${s}&image_type=photo&orientation=horizontal&safesearch=true`;return fetch(t).then(o=>o.json())}function p(s){const t=document.querySelector(".gallery"),o=s.map(e=>`
+      <a class="gallery-item" href="${e.largeImageURL}">
+        <img class="gallery-image" src="${e.webformatURL}" alt="${e.tags}" />
+        <div class="info">
+          <p class="info-item"><span>Likes:</span> ${e.likes}</p>
+          <p class="info-item"><span>Views:</span> ${e.views}</p>
+          <p class="info-item"><span>Comments:</span> ${e.comments}</p>
+          <p class="info-item"><span>Downloads:</span> ${e.downloads}</p>
+        </div>
+      </a>`).join("");t.innerHTML=o,new l(".gallery a").refresh()}function m(){const s=document.querySelector(".gallery");s.innerHTML=""}const h=document.querySelector(".search-form"),y=document.querySelector(".search-input");document.querySelector(".gallery");const c=document.querySelector(".loader");h.addEventListener("submit",g);function g(s){s.preventDefault();const t=y.value.trim();if(t===""){a.error({title:"Error",message:"Please enter a search query"});return}m(),L(),d(t).then(o=>{o.hits.length===0?a.error({position:"topRight",message:"Sorry, there are no images matching your search query. Please try again."}):p(o.hits)}).catch(o=>{a.error({position:"topRight",message:"Error"})}).finally(()=>{S()})}function L(){c.classList.remove("hidden")}function S(){c.classList.add("hidden")}
+//# sourceMappingURL=commonHelpers.js.map
