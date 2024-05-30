@@ -50,11 +50,13 @@ function onSearch(event) {
 }
 
 function showLoader() {
-  loader.classList.remove('hidden');
-  loader.classList.add('visible');
+  // loader.classList.remove('hidden');
+  // loader.classList.add('visible');
+  loader.style.display = 'block';
 }
 
 function hideLoader() {
-  loader.classList.remove('visible');
-  loader.classList.add('hidden');
+  // loader.classList.remove('visible');
+  // loader.classList.add('hidden');
+  loader.style.display = 'none';
 }
