@@ -51,8 +51,10 @@ function onSearch(event) {
 
 function showLoader() {
   loader.classList.remove('hidden');
+  loader.classList.add('visible');
 }
 
 function hideLoader() {
+  loader.classList.remove('visible');
   loader.classList.add('hidden');
 }

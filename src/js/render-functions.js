@@ -19,7 +19,11 @@ export function renderGallery(images) {
     .join('');
 
   galleryContainer.innerHTML = markup;
-  const lightbox = new SimpleLightbox('.gallery a');
+  const lightbox = new SimpleLightbox('.gallery a', {
+    navText: ['&#5176;', '&#5171;'],
+    captionsData: 'alt',
+    captionDelay: 250,
+  });
   lightbox.refresh();
 }
 
